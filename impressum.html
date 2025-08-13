@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - TechFlow Solutions</title>
+    <meta name="description" content="Impressum der TechFlow Solutions GmbH - Rechtliche Informationen und Kontaktdaten">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-wrapper">
+    <header id="main-header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1 data-editable="nav-brand">TechFlow Solutions</h1>
+                </div>
+                <button class="nav-toggle" aria-label="Navigation öffnen">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" data-editable="nav-home">Home</a></li>
+                    <li><a href="index.html#services" data-editable="nav-services">Services</a></li>
+                    <li><a href="index.html#about" data-editable="nav-about">Über uns</a></li>
+                    <li><a href="index.html#team" data-editable="nav-team">Team</a></li>
+                    <li><a href="index.html#contact" data-editable="nav-contact">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="legal-content">
+            <div class="container">
+                <h3 data-editable="legal-headline">Impressum</h3>
+                
+                <p><strong data-editable="legal-company-label">TechFlow Solutions GmbH</strong><br>
+                <span data-editable="legal-address-street">Musterstraße 123</span><br>
+                <span data-editable="legal-address-city">10115 Berlin</span><br>
+                <span data-editable="legal-address-country">Deutschland</span></p>
+
+                <p><strong data-editable="legal-management-label">Vertreten durch:</strong><br>
+                <span data-editable="legal-management-name">Geschäftsführer: Max Mustermann</span></p>
+
+                <p><strong data-editable="legal-contact-label">Kontakt:</strong><br>
+                <span data-editable="legal-contact-phone">Telefon: +49 30 12345678</span><br>
+                <span data-editable="legal-contact-email">E-Mail: info@techflow-solutions.de</span></p>
+
+                <p><strong data-editable="legal-register-label">Registereintrag:</strong><br>
+                <span data-editable="legal-register-number">Handelsregister: HRB 123456 B</span><br>
+                <span data-editable="legal-register-court">Registergericht: Amtsgericht Berlin-Charlottenburg</span></p>
+
+                <p><strong data-editable="legal-vat-label">Umsatzsteuer-ID:</strong><br>
+                <span data-editable="legal-vat-description">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</span><br>
+                <span data-editable="legal-vat-number">DE123456789</span></p>
+
+                <p><strong data-editable="legal-responsible-label">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+                <span data-editable="legal-responsible-name">Max Mustermann</span><br>
+                <span data-editable="legal-responsible-address-street">Musterstraße 123</span><br>
+                <span data-editable="legal-responsible-address-city">10115 Berlin</span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 data-editable="footer-brand">TechFlow Solutions</h3>
+                    <p data-editable="footer-description">Ihr Partner für maßgeschneiderte Software-Lösungen und digitale Transformation.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-editable="footer-links-headline">Links</h4>
+                    <ul>
+                        <li><a href="index.html#services" data-editable="footer-link-services">Services</a></li>
+                        <li><a href="index.html#about" data-editable="footer-link-about">Über uns</a></li>
+                        <li><a href="index.html#contact" data-editable="footer-link-contact">Kontakt</a></li>
+                        <li><a href="impressum.html" data-editable="footer-link-impressum">Impressum</a></li>
+                        <li><a href="datenschutz.html" data-editable="footer-link-datenschutz">Datenschutz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-editable="footer-contact-headline">Kontakt</h4>
+                    <p data-editable="footer-contact-email">info@techflow-solutions.de</p>
+                    <p data-editable="footer-contact-phone">+49 30 12345678</p>
+                    <p data-editable="footer-contact-address">Musterstraße 123, 10115 Berlin</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-editable="footer-copyright">&copy; 2025 TechFlow Solutions GmbH. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+<!-- Webseitengenie Editor Support -->
+<script>
+(function() {
+  // Only activate in editor mode
+  if (!window.location.search.includes('webseitengenie_editor=true')) return;
+  
+  // Store original content
+  const originalContent = new Map();
+  
+  // Listen for editor messages
+  window.addEventListener('message', function(event) {
+    if (event.source !== window.parent) return;
+    
+    const { type, elementId, content } = event.data;
+    
+    if (type === 'update-preview') {
+      const element = document.querySelector('[data-editable="' + elementId + '"]');
+      if (!element) return;
+      
+      // Store original
+      if (!originalContent.has(elementId)) {
+        originalContent.set(elementId, element.innerHTML);
+      }
+      
+      // Update with animation
+      element.style.transition = 'all 0.3s ease';
+      element.innerHTML = content;
+      element.style.backgroundColor = '#fef3c7';
+      
+      setTimeout(() => {
+        element.style.backgroundColor = '';
+      }, 300);
+    }
+    
+    if (type === 'restore-original') {
+      originalContent.forEach((content, id) => {
+        const el = document.querySelector('[data-editable="' + id + '"]');
+        if (el) el.innerHTML = content;
+      });
+    }
+  });
+  
+  // Signal ready
+  window.parent.postMessage({ type: 'preview-ready' }, '*');
+})();
+</script>
+</body>
+</html>

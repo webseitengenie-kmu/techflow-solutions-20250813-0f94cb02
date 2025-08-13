@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techflow-solutions.de/sitemap.xml
